@@ -18,6 +18,12 @@ public class User {
     private User() {
     }
 
+    public User(String name, String surname, int age) {
+        this.name = name;
+        this.surname = surname;
+        this.age = age;
+    }
+
     public String getName() {
         return name;
     }
@@ -30,7 +36,11 @@ public class User {
         return age;
     }
 
-    public static class UserBuilder {//inner class
+    /* Her hasni choxlu sayda parametrleri (states ve ya fields) olan clasin obyektini 
+        immutable edib obyekti yaradanda onun bize lazim olan parametrlerine deyer set etmek isteyirikse, BUILDER PATTERN`den istifade edirik.
+    */
+    
+    public static class UserBuilder {//nested class 
 
         private User user = null;
 
@@ -38,7 +48,7 @@ public class User {
             user = new User();
         }
 
-        public UserBuilder setName(String name) {
+        public UserBuilder setName(String name) { //her bir metod geriye UserBuilder clasinin obyektini qaytarir
             this.user.name = name;
             return this;
         }
@@ -53,8 +63,8 @@ public class User {
             return this;
         }
         
-        public User build(){  // geriye bir user obyekti qaytarir
-            return this.user;
+        public User build(){  // geriye yuxarida daxil edilen deyerlere malik YENI bir user obyekti qaytarir
+            return new User(user.name, user.surname, user.age);
         }
 
     }
