@@ -12,7 +12,7 @@ package singletonPattern;
 public class Main {
     
     public static void main(String[] args) {
-        User user = User.buildUser("Sahil");
+        User user = User.createUser("Sahil");
     
         System.out.println(user);
         

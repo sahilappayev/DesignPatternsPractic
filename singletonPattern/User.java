@@ -28,7 +28,7 @@ public class User {
         }
     }
     
-    public static User buildUser(String name){
+    public static User createUser(String name){
         if(user == null){
             user = new User();
             user.name = name;
