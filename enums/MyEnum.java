@@ -15,6 +15,9 @@ public enum MyEnum { // ENUM ashagidaki MyEnum classinin daha qisa shekilde yazi
 
     private String text;
 
+    private MyEnum() {
+    }
+    
     MyEnum(String text) {
         this.text = text;
     }
